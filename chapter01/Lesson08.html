@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lesson08</title>
+  </head>
+  <body>
+  <canvas id="myCanvas" width="400px" height="300px"></canvas>
+  <script>
+      var canvas = document.getElementById("myCanvas");
+      var context = canvas.getContext("2d");
+      // Blue
+      context.fillStyle = "#0055A4";
+      context.fillRect(0,   0, 120, 300);
+      // White
+      context.fillStyle = "#FFFFFF";
+      context.fillRect(120, 0, 252, 300);
+      // Red
+      context.fillStyle = "#EF4135";
+      context.fillRect(252, 0, 400, 300);
+  </script>
+  </body>
+</html>
