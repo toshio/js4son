@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lesson06</title>
+  </head>
+  <body>
+    <input id="A" type="number" value="0" min="0" max="99" oninput="calc()" />
+    +
+    <input id="B" type="number" value="0" min="0" max="99" oninput="calc()" />
+    =
+    <input id="C" type="number" value="0" readonly />
+  </body>
+  <script>
+      function calc() {
+          var a = document.getElementById("A").value;
+          var b = document.getElementById("B").value;
+
+          try {
+              var sum = parseInt(a) + parseInt(b);
+              document.getElementById("C").value = sum;
+          } catch (e) {
+              document.getElementById("C").value = "";
+          }
+      }
+  </script>
+</html>
