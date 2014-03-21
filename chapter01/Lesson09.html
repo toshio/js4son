@@ -4,24 +4,24 @@
     <title>Lesson09</title>
   </head>
   <body>
-  <canvas id="myCanvas" width="300px" height="200px"></canvas>
-  <script>
-      var canvas = document.getElementById("myCanvas");
-      var context = canvas.getContext("2d");
-      var width  = canvas.width;
-      var height = canvas.height;
+    <canvas id="myCanvas" width="300px" height="200px"></canvas>
+    <script>
+        var canvas = document.getElementById("myCanvas");
+        var context = canvas.getContext("2d");
+        var width  = canvas.width;
+        var height = canvas.height;
 
-      // Rectangle
-      context.beginPath();
-      context.strokeStyle="gray";
-      context.rect(0, 0, width, height);
-      context.stroke();
+        // Rectangle
+        context.beginPath();
+        context.strokeStyle="gray";
+        context.rect(0, 0, width, height);
+        context.stroke();
 
-      // Circle
-      context.beginPath();
-      context.arc(width / 2, height / 2, height * 3 /10, 0, Math.PI * 2, true);
-      context.fillStyle = "#ed2939";
-      context.fill();
-  </script>
+        // Circle
+        context.beginPath();
+        context.arc(width / 2, height / 2, height * 3 /10, 0, Math.PI * 2, true);
+        context.fillStyle = "#ed2939";
+        context.fill();
+    </script>
   </body>
 </html>
