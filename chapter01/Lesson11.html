@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lesson11</title>
+  </head>
+  <body>
+    <canvas id="myCanvas" width="300px" height="300px"></canvas>
+    <script>
+        var repeat   = 100;
+        var counter  = 0;
+        var interval = 50;
+        var timerId;
+
+        function draw() {
+            var canvas = document.getElementById("myCanvas");
+            var context = canvas.getContext("2d");
+            var width  = canvas.width;
+            var height = canvas.height;
+            var r = Math.min(width, height) / 2 * counter / repeat;
+
+            // Clear canvas
+            context.clearRect(0, 0, width, height);
+
+            // Draw circle
+            context.beginPath();
+            context.arc(width / 2, height / 2, r, 0, Math.PI * 2, true);
+            context.fillStyle = "skyblue";
+            context.fill();
+
+            // Increase counter
+            counter++;
+            if (counter > repeat) {
+                clearInterval(timerId);
+            }
+        }
+
+        window.onload = function() {
+            timerId = setInterval(draw, interval);
+        };
+        </script>
+  </body>
+</html>
