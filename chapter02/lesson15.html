@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Lesson15 Clock</title>
+    <style>
+    html, body {
+        width:    100%;
+        height:   100%;
+        margin:   0;
+        padding:  0;
+        overflow: hidden;
+    }
+    canvas {
+        position: absolute;
+    }
+    </style>
+  </head>
+  <body>
+    <canvas id="myCanvas"></canvas>
+
+    <script>
+    function drawClock() {
+        var canvas  = document.getElementById("myCanvas");
+        var context = canvas.getContext("2d");
+        var width   = canvas.width;
+        var height  = canvas.height;
+        var radius  = Math.min(width, height) / 2.0 * 0.8;
+        var cx      = width  / 2;
+        var cy      = height / 2;
+
+        // Time
+        var date   = new Date();
+        var hour   = date.getHours() % 12;
+        var minute = date.getMinutes();
+        var second = date.getSeconds();
+
+        // Clear canvas
+        context.beginPath();
+        context.fillStyle = "white";
+        context.fillRect(0, 0, width, height);
+
+        // Circle
+        context.beginPath();
+        context.arc(cx, cy, radius, 0, Math.PI * 2, true);
+        context.strokeStyle = "black";
+        context.lineWidth   = 5;
+        context.stroke();
+
+        // Numbers
+        var hours = "ⅫⅠⅡⅢⅣⅤⅥⅦⅧⅨⅩⅪ".split("");
+        context.beginPath();
+        context.textAlign    = "center";
+        context.textBaseline = "middle";
+        context.font         = Math.floor(radius * 0.15) + "px 'ＭＳ 明朝'";
+        context.fillStyle    = "black";
+        for (var index in hours) {
+            var radiusNumber = radius * 0.85;
+            var thetaNumber  = (2 * Math.PI / 12 ) * index;
+            var posNumber    = calcPosition(cx, cy, radiusNumber, thetaNumber);
+            context.fillText(hours[index], posNumber.x, posNumber.y);
+        }
+
+        // Hour hand
+        var radiusHour = radius * 0.7;
+        var thetaHour  = (2 * Math.PI / 12 ) * (hour + minute / 60 + second / 3600);
+        var posHour    = calcPosition(cx, cy, radiusHour, thetaHour);
+        context.beginPath();
+        context.moveTo(cx,  cy);
+        context.lineTo(posHour.x, posHour.y);
+        context.lineWidth = 4;
+        context.stroke();
+
+        // Minute hand
+        var radiusMinute = radius * 0.9;
+        var thetaMinute  = (2 * Math.PI / 60) * (minute + second / 60);
+        var posMinute    = calcPosition(cx, cy, radiusMinute, thetaMinute);
+        context.beginPath();
+        context.moveTo(cx,  cy);
+        context.lineTo(posMinute.x, posMinute.y);
+        context.lineWidth = 3;
+        context.stroke();
+
+        // Second hand
+        var radiusSecond = radius * 0.9;
+        var thetaSecond  = (2 * Math.PI / 60) * second;
+        var posSecond    = calcPosition(cx, cy, radiusSecond, thetaSecond);
+        context.beginPath();
+        context.moveTo(cx,  cy);
+        context.lineTo(posSecond.x, posSecond.y);
+        context.strokeStyle = "red";
+        context.lineWidth   = 1;
+        context.stroke();
+
+        // Invoke when second changed
+        setTimeout(drawClock, 1000 - date.getMilliseconds());
+    }
+
+    function calcPosition(cx, cy, radius, theta) {
+        return {
+            x: cx + (radius * Math.sin(theta)),
+            y: cy - (radius * Math.cos(theta))
+        };
+    }
+
+    function resize() {
+        var canvas = document.getElementById("myCanvas");
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        drawClock();
+    }
+
+    window.addEventListener("resize", resize, false);
+    window.addEventListener("load",   resize, false);
+    </script>
+  </body>
+</html>
