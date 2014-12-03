@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Lesson18 Binaries</title>
+  <body>
+    <div id="text"></div>
+    <script>
+    var value = "<table border='0'>";
+    for (var i=0, a=1; i<=50; i++) {
+        value += "<tr>"
+               + "<td>2<sup>" + i + "</sup></td>"
+               + "<td>=</td>"
+               + "<td align='right'>" + a + "</td>"
+               + "</tr>";
+        a *= 2;
+    }
+    value += "</table>";
+    document.getElementById("text").innerHTML = value;
+    </script>
+  </body>
+</html>
