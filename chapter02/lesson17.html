@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Lesson17 Prime factorization</title>
+  <body>
+    <input id="number" type="number" min="2" max="10000" placeholder="Number" onchange="answer();"/>
+    <input id="result" type="text"   maxlength="40" placeholder="result" readonly="readonly" />
+    <script>
+    function answer() {
+        var number  = parseInt(document.getElementById("number").value);
+        var value   = "";
+        if (number) {
+            value = factorize(number).join(" × ");
+        }
+        document.getElementById("result").value = value;
+    }
+
+    function factorize(value) {
+        var factors = [];
+        var divisor = 2;
+        while (value >= 2) {
+            if (value % divisor == 0) {
+                value /= divisor;
+                factors.push(divisor);
+            } else {
+                divisor++;
+            }
+        }
+        return factors;
+    }
+    </script>
+  </body>
+</html>
