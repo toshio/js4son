@@ -1,4 +1,6 @@
 js4son
 ======
 
-Teaching JavaScript for my son
+Teaching JavaScript to my son
+
+[js4son](http://js4son.blogspot.jp/ "js4son")
