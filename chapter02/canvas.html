@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>title</title>
+</head>
+<body>
+<canvas id="myCanvas" width=400 height=600 style="border:1px solid #000000;">
+</canvas>
+<script>
+let canvas = document.getElementById('myCanvas');
+let ctx    = canvas.getContext('2d');
+
+ctx.shadowColor = "Grey";
+ctx.shadowBlur = 20;
+ctx.shadowOffsetX = 15;
+ctx.shadowOffsetY = 15;
+
+ctx.fillStyle = 'red'; 
+ctx.fillRect(20, 20, 200, 100);
+
+ctx.strokeStyle = 'purple';
+ctx.lineWidth=10;
+ctx.strokeRect(20, 150, 200, 100);
+
+</script>
+</body>
+</html>

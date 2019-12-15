@@ -10,16 +10,16 @@
     =
     <input id="C" type="number" value="0" readonly />
     <script>
-        function calc() {
-            var a = document.getElementById("A").value;
-            var b = document.getElementById("B").value;
-             try {
-                var sum = parseInt(a) + parseInt(b);
-                document.getElementById("C").value = sum;
-            } catch (e) {
-                document.getElementById("C").value = "";
-            }
+      function calc() {
+        let a = document.getElementById("A").value;
+        let b = document.getElementById("B").value;
+        try {
+          let sum = parseInt(a) + parseInt(b);
+          document.getElementById("C").value = sum;
+        } catch (e) {
+          document.getElementById("C").value = "";
         }
+      }
     </script>
   </body>
 </html>

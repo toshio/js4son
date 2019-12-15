@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!--  file:///C:/Users/toshio/git/js4son/test.html -->
+<title>Lesson01</title>
+    <style>
+    html, body {
+        width:    100%;
+        height:   100%;
+        margin:   0;
+        padding:  0;
+        overflow: hidden;
+    }
+    canvas {
+        position: absolute;
+    }
+    </style>
+
+</head>
+<body>
+<canvas id="myCanvas"></canvas>
+<script>
+window.addEventListener('load',   init);
+window.addEventListener("resize", resize, false);
+
+var canvas;
+var context;
+
+/**
+ * 初期化
+ */
+function init() {
+	canvas  = document.getElementById("myCanvas");
+	context = canvas.getContext("2d");
+	resize();
+	requestAnimationFrame(update);
+}
+
+function update() {
+	draw();
+	requestAnimationFrame(update);
+}
+
+function resize() {
+	canvas.width  = window.innerWidth;
+	canvas.height = window.innerHeight;
+//	draw();
+}
+
+function draw() {
+	canvas  = document.getElementById("myCanvas");
+	context = canvas.getContext("2d");
+
+	// 全体をクリア
+	context.beginPath();
+	context.clearRect(0, 0, canvas.width, canvas.height);
+
+	context.moveTo(0,0);
+	context.lineTo(canvas.width, canvas.height);
+	console.log("width: " + canvas.width + ", height:" + canvas.height);
+	var color = "rgb(" + Math.floor(Math.random()*255) + ", " + Math.floor(Math.random()*255)  + ", " + Math.floor(Math.random()*255) + ")";
+	console.log("color: " + color);
+	context.strokeStyle = color;
+	context.stroke();
+}
+</script>
+</body>
+</html>

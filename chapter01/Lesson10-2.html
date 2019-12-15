@@ -6,13 +6,13 @@
   <body>
     <canvas id="myCanvas" width="500px" height="500px"></canvas>
     <script>
-        var canvas = document.getElementById('myCanvas');
-        var context = canvas.getContext('2d');
-        var image = new Image();
-        image.onload = function() {
-            context.drawImage(image, 0, 0);
-        };
-        image.src = "images/Lesson10-2.jpg";
+      let canvas = document.getElementById('myCanvas');
+      let context = canvas.getContext('2d');
+      let image = new Image();
+      image.onload = function() {
+        context.drawImage(image, 0, 0);
+      };
+      image.src = "images/Lesson10-2.jpg";
     </script>
   </body>
 </html>

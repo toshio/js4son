@@ -8,28 +8,28 @@
     <input id="number" type="number" min="2" max="10000" placeholder="Number" onchange="answer();"/>
     <input id="result" type="text"   maxlength="40" placeholder="result" readonly="readonly" />
     <script>
-    function answer() {
-        var number  = parseInt(document.getElementById("number").value);
-        var value   = "";
+      function answer() {
+        let number  = parseInt(document.getElementById("number").value);
+        let value   = "";
         if (number) {
-            value = factorize(number).join(" × ");
+          value = factorize(number).join(" × ");
         }
         document.getElementById("result").value = value;
-    }
+      }
 
-    function factorize(value) {
-        var factors = [];
-        var divisor = 2;
+      function factorize(value) {
+        let factors = [];
+        let divisor = 2;
         while (value >= 2) {
-            if (value % divisor == 0) {
-                value /= divisor;
-                factors.push(divisor);
-            } else {
-                divisor++;
-            }
+          if (value % divisor == 0) {
+            value /= divisor;
+            factors.push(divisor);
+          } else {
+            divisor++;
+          }
         }
         return factors;
-    }
+      }
     </script>
   </body>
 </html>
